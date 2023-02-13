@@ -82,7 +82,7 @@ def sendEmail(to, content):
     server.ehlo()
     server.starttls()
 
-    # Enable low security in gmail
+
     server.login('your email id', 'your email password')
     server.sendmail('your email id', to, content)
     server.close()
@@ -91,8 +91,6 @@ def sendEmail(to, content):
 if __name__ == '__main__':
     clear = lambda: os.system('cls')
     assname = ("temi")
-    # This Function will clean any
-    # command before execution of this python file
     clear()
     wishMe()
     username()
@@ -101,10 +99,6 @@ if __name__ == '__main__':
 
         query = takeCommand().lower()
 
-        # All the commands said by user will be
-        # stored here in 'query' and will be
-        # converted to lower case for easily
-        # recognition of command
         if 'wikipedia' in query:
             speak('Searching Wikipedia...')
             query = query.replace("wikipedia", "")
@@ -123,7 +117,6 @@ if __name__ == '__main__':
 
         elif 'play music' in query or "play song" in query:
             speak("Here you go with music")
-            # music_dir = "G:\\Song"
             music_dir = "put here music ali"
             songs = os.listdir(music_dir)
             print(songs)
@@ -133,20 +126,7 @@ if __name__ == '__main__':
             strTime = datetime.datetime.now().strftime("% H:% M:% S")
             speak(f"Sir, the time is {strTime}")
 
-        elif 'open opera' in query:
-            codePath = r"C:\\Users\\GAURAV\\AppData\\Local\\Programs\\Opera\\launcher.exe"
-            os.startfile(codePath)
 
-        elif 'email to gaurav' in query:
-            try:
-                speak("What should I say?")
-                content = takeCommand()
-                to = "Receiver email address"
-                sendEmail(to, content)
-                speak("Email has been sent !")
-            except Exception as e:
-                print(e)
-                speak("I am not able to send this email")
 
         elif 'send a mail' in query:
             try:
@@ -306,7 +286,7 @@ if __name__ == '__main__':
                     if ch:
                         Pypdf.write(ch)
 
-        # NPPR9-FWDCX-D2C8J-H872K-2YT43
+ 
         elif "Temi" in query:
 
             wishMe()
@@ -315,8 +295,7 @@ if __name__ == '__main__':
 
         elif "weather" in query:
 
-            # Google Open weather website
-            # to get API of Open weather
+ 
             api_key = "Api key"
             base_url = "http://api.openweathermap.org / data / 2.5 / weather?"
             speak(" City name ")
@@ -369,7 +348,6 @@ if __name__ == '__main__':
         elif "what is" in query or "who is" in query:
 
             # Use the same API key
-            # that we have generated earlier
             client = wolframalpha.Client("API_ID")
             res = client.query(query)
 
@@ -379,9 +357,6 @@ if __name__ == '__main__':
             except StopIteration:
                 print("No results")
 
-        # elif "" in query:
-        # Command go here
-        # For adding more commands
 
 
 
